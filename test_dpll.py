@@ -25,7 +25,13 @@ f5 = Or(y,v)
 
 f = And(f1, And(f2, And(f3, And(f4,f5))))
 
+def test_equiv_dpll():
+	# De Morgan's Laws
+	assert equiv_dpll(Not(And(x, y)), Or(Not(x), Not(y)))
+	assert equiv_dpll(Not(Or(x, y)), And(Not(x), Not(y)))
 
+	# iff Operator
+	assert equiv_dpll(And(Implies(x, y), Implies(y, x)), Iff(x, y))
 
 def test_dpll_sat():
 	assert dpll_sat(T)
