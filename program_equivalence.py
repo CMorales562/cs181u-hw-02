@@ -30,8 +30,9 @@ program3 = IfThenElse(A,
 				)
 
 def equiv_programs(P1, P2):
-	# Implement me!
-	pass
+	p1Bool = P1.toBool()
+	p2Bool = P2.toBool()
+	return equiv_dpll(p1Bool, p2Bool)
 	
 print("Program 1")
 print(program1.format())
